@@ -22,6 +22,8 @@
     <?php
 
     //learn from w3schools.com
+    $feeCurrency  = "GHS";
+    $baseFee = 15;
 
     session_start();
 
@@ -215,10 +217,19 @@
                                     $docemail=$row["docemail"];
                                     $scheduledate=$row["scheduledate"];
                                     $scheduletime=$row["scheduletime"];
+
                                     $sql2="select * from appointment where scheduleid=$id";
                                     //echo $sql2;
-                                     $result12= $database->query($sql2);
-                                     $apponum=($result12->num_rows)+1;
+                                    $result12= $database->query($sql2);
+                                    $apponum=($result12->num_rows)+1;
+
+                                    $docId = $row["docid"];
+
+                                    $q2 = "select * from doctor where docid=$docId";
+                                    $result2= $database->query($q2);
+                                    $row2 = $result2->fetch_assoc();
+                                    $moneyFee = $row2['value'];
+
                                     
                                     echo '
                                         <form action="booking-complete.php" method="post">
@@ -250,7 +261,7 @@
                                                             Session Title: '.$title.'<br>
                                                             Session Scheduled Date: '.$scheduledate.'<br>
                                                             Session Starts : '.$scheduletime.'<br>
-                                                            Channeling fee : <b>LKR.2 000.00</b>
+                                                            Channeling fee : <b>'.$feeCurrency.' '.$moneyFee.'</b>
 
                                                         </div>
                                                         <br>

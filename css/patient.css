@@ -7,8 +7,6 @@ body{
     display: flex;
     flex-wrap: wrap;
     height: 100vh;
-
-
 }
 .menu{
     border-right: 1.5px solid rgb(235, 235, 235);
@@ -130,4 +128,10 @@ body{
     border: 0.5px solid rgba(190, 190, 190, 0.884);
     
     
+}
+
+@media screen and (max-width:425px) {
+   .patient-header{
+      width: 90%;
+   }
 }

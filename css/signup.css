@@ -55,3 +55,13 @@ td{
     margin-bottom: 15px;
     width: 100%;
 }
+
+@media screen and (max-width:425px) {
+    .container {
+        width: 95%;
+        margin-top: 50px;
+    }
+    body{
+        margin:0;
+    }
+}

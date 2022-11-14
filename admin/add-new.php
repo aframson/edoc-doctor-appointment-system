@@ -48,6 +48,7 @@
         $tele=$_POST['Tele'];
         $password=$_POST['password'];
         $cpassword=$_POST['cpassword'];
+        $doctor_price = $_POST['docfee'];
         
         if ($password==$cpassword){
             $error='3';
@@ -56,7 +57,7 @@
                 $error='1';
             }else{
 
-                $sql1="insert into doctor(docemail,docname,docpassword,docnic,doctel,specialties) values('$email','$name','$password','$nic','$tele',$spec);";
+                $sql1="insert into doctor(docemail,docname,docpassword,docnic,doctel,specialties,value) values('$email','$name','$password','$nic','$tele',$spec,'$doctor_price');";
                 $sql2="insert into webuser values('$email','d')";
                 $database->query($sql1);
                 $database->query($sql2);
